@@ -63,5 +63,20 @@ class LinkedList {
 
         return current.value;
     }
+
+    at(index){
+        if(index < 0) return undefined;
+
+        let count = 0;
+        let current = this.head;
+
+    while(current && count !== index){
+        current = current.next;
+        count++;
+        }
+
+        // Check for if current is null due to out of bounds index
+        return current ? current.value : undefined;
+    }
 }
 

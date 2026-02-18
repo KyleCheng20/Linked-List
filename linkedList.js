@@ -27,5 +27,12 @@ class LinkedList {
         // Update previous tail node to point to new node
         current.next = newNode;
     }
+
+    prepend(value){
+        const newNode = new Node(value);
+
+        newNode.next = this.head;
+        this.head = newNode;
+    }
 }
 

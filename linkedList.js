@@ -129,4 +129,37 @@ class LinkedList {
 
         return result;
     }
+
+    insertAt(index, ...values){
+        if(index < 0 || index > this.size()) throw new RangeError("Index out of bounds");
+
+        let firstNewNode = new Node(values[0]);
+        let lastNewNode = firstNewNode;
+
+        for(let i = 1; i < values.length; i++){
+            lastNewNode.next = new Node(values[i]);
+            lastNewNode = lastNewNode.next;
+        }
+
+        // Case for inserting at the head
+        if(index === 0){
+            lastNewNode.next = this.head;
+            this.head = firstNewNode;
+            return;
+        }
+
+        // Case for inserting at the middle or end
+        let current = this.head;
+        let count = 0;
+
+        while(count < index -1){
+            current = current.next;
+            count++;
+        }
+        lastNewNode.next = current.next;
+        current.next = firstNewNode;
+
+    }
 }
+
+export { LinkedList };

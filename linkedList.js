@@ -148,7 +148,7 @@ class LinkedList {
             return;
         }
 
-        // Case for inserting at the middle or end
+        // Case for inserting at the middle or tail
         let current = this.head;
         let count = 0;
 
@@ -156,9 +156,30 @@ class LinkedList {
             current = current.next;
             count++;
         }
+
         lastNewNode.next = current.next;
         current.next = firstNewNode;
+    }
 
+    removeAt(index){
+        if(index < 0 || index >= this.size()) throw new RangeError("Index out of bounds");
+
+        // Case for removing head
+        if(index === 0){
+            this.head = this.head.next;
+            return;
+        }
+
+        // Case for removing middle or tail
+        let current = this.head;
+        let count = 0;
+
+        while(count < index - 1){
+            current = current.next;
+            count++;
+        }
+
+        current.next = current.next.next;
     }
 }
 

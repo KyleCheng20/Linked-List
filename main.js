@@ -17,3 +17,6 @@ console.log(`Does list contain dog: ${list.contains("dog")}`);
 
 list.insertAt(1, 10, 11);
 console.log(list.toString());
+console.log(list.removeAt(2));
+console.log(list.toString());
+

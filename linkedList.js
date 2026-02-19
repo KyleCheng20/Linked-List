@@ -99,5 +99,19 @@ class LinkedList {
 
         return false;
     }
+
+    findIndex(value){
+        let index = 0;
+        let current = this.head;
+
+        while(current){
+            if(current.value === value) return index;
+
+            current = current.next;
+            index++;
+        }
+
+        return -1;
+    }
 }
 

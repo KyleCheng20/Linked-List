@@ -70,13 +70,22 @@ class LinkedList {
         let count = 0;
         let current = this.head;
 
-    while(current && count !== index){
-        current = current.next;
-        count++;
-        }
+        while(current && count !== index){
+            current = current.next;
+            count++;
+            }
 
         // Check for if current is null due to out of bounds index
         return current ? current.value : undefined;
+    }
+
+    pop(){
+        if(this.head === null) return undefined;
+
+        const value = this.head.value;
+        this.head = this.head.next;
+
+        return value;
     }
 }
 
